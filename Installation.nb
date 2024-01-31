@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     47178,       1000]
-NotebookOptionsPosition[     44022,        945]
-NotebookOutlinePosition[     44497,        963]
-CellTagsIndexPosition[     44454,        960]
+NotebookDataLength[     47232,       1001]
+NotebookOptionsPosition[     44076,        946]
+NotebookOutlinePosition[     44551,        964]
+CellTagsIndexPosition[     44508,        961]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -161,10 +161,11 @@ Cell[BoxData[
  CellChangeTimes->{{3.9152838635876045`*^9, 3.915283868948276*^9}},
  CellLabel->"In[6]:=",ExpressionUUID->"c9d34a4b-5574-4db4-9a1f-1efd1e9c479e"],
 
-Cell[TextData[StyleBox["Currently, all functions in the TopoTB package are",
+Cell[TextData[StyleBox["Currently, main capabilities in the TopoTB package \
+are",
  Background->RGBColor[0.94, 0.88, 0.94]]], "Text",
  CellChangeTimes->{{3.9156208420329247`*^9, 3.915620862016199*^9}, 
-   3.915621408641167*^9},
+   3.915621408641167*^9, {3.915689193319002*^9, 3.9156891962412987`*^9}},
  Background->RGBColor[
   0.94, 0.88, 0.94],ExpressionUUID->"0b92cb66-aff6-4fa7-a9a6-6d94b67c08cd"],
 
@@ -984,22 +985,22 @@ Cell[5882, 139, 305, 5, 51, "Text",ExpressionUUID->"197e7826-10ee-4a78-a3d7-4924
 Cell[6190, 146, 215, 3, 50, "Code",ExpressionUUID->"797a639b-2538-446d-b2a6-bdea09b1abfc"],
 Cell[6408, 151, 324, 5, 51, "Text",ExpressionUUID->"cfbe4294-fc95-4ef1-8ba3-b4876d3188b3"],
 Cell[6735, 158, 196, 3, 50, "Code",ExpressionUUID->"c9d34a4b-5574-4db4-9a1f-1efd1e9c479e"],
-Cell[6934, 163, 320, 5, 51, "Text",ExpressionUUID->"0b92cb66-aff6-4fa7-a9a6-6d94b67c08cd"],
+Cell[6934, 163, 374, 6, 51, "Text",ExpressionUUID->"0b92cb66-aff6-4fa7-a9a6-6d94b67c08cd"],
 Cell[CellGroupData[{
-Cell[7279, 172, 850, 12, 173, "Code",ExpressionUUID->"93fb54a2-8549-4d91-81e4-980f9453ee11"],
-Cell[8132, 186, 366, 5, 32, "Output",ExpressionUUID->"a78c6296-a5dd-4c42-9a8f-8b5f5ea30fb0"],
-Cell[8501, 193, 391, 6, 32, "Output",ExpressionUUID->"ae5b67b2-8b8d-4a59-b326-cb45241ef339"],
-Cell[8895, 201, 500, 8, 32, "Output",ExpressionUUID->"804db7ab-7dfe-4fb8-9a57-ccece58c10f6"],
-Cell[9398, 211, 486, 8, 32, "Output",ExpressionUUID->"87d2dfae-b307-4bf1-8929-b61de060aebc"],
-Cell[9887, 221, 515, 8, 32, "Output",ExpressionUUID->"c5000773-01c7-4005-b7bb-6f4c660bbc83"],
-Cell[10405, 231, 363, 5, 32, "Output",ExpressionUUID->"b849b521-6601-409e-b33d-b3e9cff00515"],
-Cell[10771, 238, 399, 6, 32, "Output",ExpressionUUID->"61a1dcaa-7198-42a5-8141-2f648a7d235c"],
-Cell[11173, 246, 498, 8, 32, "Output",ExpressionUUID->"eff83f0b-b014-4e0c-af18-0efea942d314"]
+Cell[7333, 173, 850, 12, 173, "Code",ExpressionUUID->"93fb54a2-8549-4d91-81e4-980f9453ee11"],
+Cell[8186, 187, 366, 5, 32, "Output",ExpressionUUID->"a78c6296-a5dd-4c42-9a8f-8b5f5ea30fb0"],
+Cell[8555, 194, 391, 6, 32, "Output",ExpressionUUID->"ae5b67b2-8b8d-4a59-b326-cb45241ef339"],
+Cell[8949, 202, 500, 8, 32, "Output",ExpressionUUID->"804db7ab-7dfe-4fb8-9a57-ccece58c10f6"],
+Cell[9452, 212, 486, 8, 32, "Output",ExpressionUUID->"87d2dfae-b307-4bf1-8929-b61de060aebc"],
+Cell[9941, 222, 515, 8, 32, "Output",ExpressionUUID->"c5000773-01c7-4005-b7bb-6f4c660bbc83"],
+Cell[10459, 232, 363, 5, 32, "Output",ExpressionUUID->"b849b521-6601-409e-b33d-b3e9cff00515"],
+Cell[10825, 239, 399, 6, 32, "Output",ExpressionUUID->"61a1dcaa-7198-42a5-8141-2f648a7d235c"],
+Cell[11227, 247, 498, 8, 32, "Output",ExpressionUUID->"eff83f0b-b014-4e0c-af18-0efea942d314"]
 }, Open  ]],
-Cell[11686, 257, 355, 6, 51, "Text",ExpressionUUID->"5755c87f-33b9-48df-b73c-10308941dc5f"],
+Cell[11740, 258, 355, 6, 51, "Text",ExpressionUUID->"5755c87f-33b9-48df-b73c-10308941dc5f"],
 Cell[CellGroupData[{
-Cell[12066, 267, 495, 7, 50, "Code",ExpressionUUID->"5974b7a4-e1c1-47ae-bd32-5dabfa78c876"],
-Cell[12564, 276, 31430, 665, 627, "Output",ExpressionUUID->"5418570c-d0f1-49e0-9918-b5a954c80b3c"]
+Cell[12120, 268, 495, 7, 50, "Code",ExpressionUUID->"5974b7a4-e1c1-47ae-bd32-5dabfa78c876"],
+Cell[12618, 277, 31430, 665, 627, "Output",ExpressionUUID->"5418570c-d0f1-49e0-9918-b5a954c80b3c"]
 }, Open  ]]
 }, Open  ]]
 }
