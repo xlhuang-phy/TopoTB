@@ -1,0 +1,1008 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 12.3' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     47178,       1000]
+NotebookOptionsPosition[     44022,        945]
+NotebookOutlinePosition[     44497,        963]
+CellTagsIndexPosition[     44454,        960]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Installation", "Subsubsection",
+ CellChangeTimes->{{3.848712631014534*^9, 3.848712644314286*^9}, 
+   3.915282839645008*^9, 
+   3.91561671497674*^9},ExpressionUUID->"1ac99ec7-17be-4898-bf8a-\
+b4566fb0275c"],
+
+Cell[TextData[StyleBox["To use the TopoTB package, you must specify the \
+complete path to load the package through Get or Needs. Alternatively, if the \
+TopoTB package is located in a directory included in $Path, you can directly \
+call it using Get or Needs.",
+ Background->RGBColor[0.94, 0.88, 0.94]]], "Text",
+ CellFrame->{{0, 0}, {0, 0}},
+ CellChangeTimes->{{3.915619202993203*^9, 3.915619279570012*^9}, {
+  3.9156196957809525`*^9, 3.915619700874852*^9}, {3.9156198044247437`*^9, 
+  3.915619807711775*^9}, {3.9156200117519083`*^9, 3.91562008362269*^9}, {
+  3.91562111794586*^9, 3.915621119068899*^9}},
+ Background->RGBColor[
+  0.94, 0.88, 0.94],ExpressionUUID->"bf3ca5dc-1a10-4518-b7c5-624d3ed4b6c3"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData["$Path"], "Code",
+ CellChangeTimes->{3.9156193897993155`*^9},
+ CellLabel->"In[1]:=",ExpressionUUID->"0f8b946d-9caf-43cd-97d9-abd59b37e004"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"\<\"C:\\\\Users\\\\Administrator\\\\AppData\\\\Roaming\\\\\
+Mathematica\\\\DocumentationIndices\"\>", 
+   ",", "\<\"D:\\\\Mathematica\\\\SystemFiles\\\\Links\"\>", 
+   ",", "\<\"C:\\\\Users\\\\Administrator\\\\AppData\\\\Roaming\\\\\
+Mathematica\\\\Kernel\"\>", 
+   ",", "\<\"C:\\\\Users\\\\Administrator\\\\AppData\\\\Roaming\\\\\
+Mathematica\\\\Autoload\"\>", 
+   ",", "\<\"C:\\\\Users\\\\Administrator\\\\AppData\\\\Roaming\\\\\
+Mathematica\\\\Applications\"\>", 
+   ",", "\<\"C:\\\\ProgramData\\\\Mathematica\\\\Kernel\"\>", 
+   ",", "\<\"C:\\\\ProgramData\\\\Mathematica\\\\Autoload\"\>", 
+   ",", "\<\"C:\\\\ProgramData\\\\Mathematica\\\\Applications\"\>", 
+   ",", "\<\".\"\>", ",", "\<\"C:\\\\Users\\\\Administrator\"\>", 
+   ",", "\<\"D:\\\\Mathematica\\\\AddOns\\\\Packages\"\>", 
+   ",", "\<\"D:\\\\Mathematica\\\\SystemFiles\\\\Autoload\"\>", 
+   ",", "\<\"D:\\\\Mathematica\\\\AddOns\\\\Autoload\"\>", 
+   ",", "\<\"D:\\\\Mathematica\\\\AddOns\\\\Applications\"\>", 
+   ",", "\<\"D:\\\\Mathematica\\\\AddOns\\\\ExtraPackages\"\>", 
+   ",", "\<\"D:\\\\Mathematica\\\\SystemFiles\\\\Kernel\\\\Packages\"\>", 
+   ",", "\<\"D:\\\\Mathematica\\\\Documentation\\\\English\\\\System\"\>", 
+   ",", "\<\"D:\\\\Mathematica\\\\SystemFiles\\\\Data\\\\ICC\"\>", 
+   ",", "\<\"D:\\\\Mathematica\\\\Documentation\\\\ChineseSimplified\\\\\
+System\\\\\"\>"}], "}"}]], "Output",
+ CellChangeTimes->{3.9156193918463893`*^9, 3.9156211721366405`*^9, 
+  3.915621772748664*^9},
+ CellLabel->"Out[1]=",ExpressionUUID->"badf65e6-cab7-4e69-aa7a-1f43509ef8d9"]
+}, Open  ]],
+
+Cell[TextData[StyleBox["For convenience, either of the following two lines of \
+code can quickly open a directory contained in $Path, place the TopoTB \
+package in it, and call it directly using Get or Needs.",
+ Background->RGBColor[0.94, 0.88, 0.94]]], "Text",
+ CellChangeTimes->{{3.9156196709508324`*^9, 3.9156196777583857`*^9}, {
+  3.9156197117903194`*^9, 3.915619748479808*^9}, {3.915619816734661*^9, 
+  3.915619823223443*^9}, {3.915620093791362*^9, 3.9156202773665447`*^9}, {
+  3.9156212145940266`*^9, 3.915621232985857*^9}},
+ Background->RGBColor[
+  0.94, 0.88, 0.94],ExpressionUUID->"1a7cede8-64b0-418a-bc75-f08843e8ad71"],
+
+Cell[BoxData[
+ RowBox[{"SystemOpen", "[", 
+  RowBox[{"FileNameJoin", "[", 
+   RowBox[{"{", 
+    RowBox[{"$UserBaseDirectory", ",", "\"\<Applications\>\""}], "}"}], "]"}],
+   "]"}]], "Code",
+ CellChangeTimes->{3.9156201382479563`*^9},
+ CellLabel->"In[2]:=",ExpressionUUID->"23b38195-809c-48cb-9fd2-885268c27922"],
+
+Cell[BoxData[
+ RowBox[{"SystemOpen", "[", 
+  RowBox[{"FileNameJoin", "[", 
+   RowBox[{"{", 
+    RowBox[{"$BaseDirectory", ",", "\"\<Applications\>\""}], "}"}], "]"}], 
+  "]"}]], "Code",
+ CellChangeTimes->{3.9156201475356593`*^9},
+ CellLabel->"In[3]:=",ExpressionUUID->"c27b5ad1-a48e-45ba-b8fa-2ba69c065e6e"],
+
+Cell[TextData[StyleBox["Use the FindFile function to view the installation \
+path of the TopoTB package and check if it is installed in the directory \
+specified in $Path.",
+ Background->RGBColor[0.94, 0.88, 0.94]]], "Text",
+ CellChangeTimes->{{3.915619502516223*^9, 3.915619551831094*^9}, {
+   3.9156202987707024`*^9, 3.915620320395604*^9}, {3.915620457439253*^9, 
+   3.9156204624303885`*^9}, 3.9156213161214848`*^9},
+ Background->RGBColor[
+  0.94, 0.88, 0.94],ExpressionUUID->"445bd32e-7e2d-4b9f-9965-0a77d4bd9831"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"FindFile", "[", "\"\<TopoTB`\>\"", "]"}]], "Code",
+ CellChangeTimes->{{3.915619459862294*^9, 3.91561947869608*^9}},
+ CellLabel->"In[4]:=",ExpressionUUID->"2de2cc10-2741-4209-9e1f-b172561ac7a5"],
+
+Cell[BoxData["\<\"C:\\\\Users\\\\Administrator\\\\AppData\\\\Roaming\\\\\
+Mathematica\\\\Applications\\\\TopoTB\\\\Kernel\\\\TopoTB.wl\"\>"], "Output",
+ CellChangeTimes->{{3.91561947349254*^9, 3.9156194792444706`*^9}, 
+   3.9156213281837807`*^9, 3.9156217829295774`*^9},
+ CellLabel->"Out[4]=",ExpressionUUID->"458273f7-aab6-497e-9251-4232df0f6002"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Load", "Subsubsection",
+ CellChangeTimes->{
+  3.9152828844282584`*^9, {3.9156167211325397`*^9, 
+   3.915616723351409*^9}},ExpressionUUID->"10b5f6c6-32cc-42d2-b809-\
+eddd9acdeb23"],
+
+Cell[TextData[StyleBox["Load TopoTB package through Needs",
+ Background->RGBColor[0.94, 0.88, 0.94]]], "Text",
+ CellChangeTimes->{{3.9156204351110816`*^9, 3.9156204683761363`*^9}, 
+   3.915621348130021*^9},
+ Background->RGBColor[
+  0.94, 0.88, 0.94],ExpressionUUID->"197e7826-10ee-4a78-a3d7-49244749d749"],
+
+Cell[BoxData[
+ RowBox[{"Needs", "[", "\"\<TopoTB`\>\"", "]"}]], "Code",
+ CellChangeTimes->{{3.915282901885578*^9, 3.915282914276474*^9}},
+ CellLabel->"In[5]:=",ExpressionUUID->"797a639b-2538-446d-b2a6-bdea09b1abfc"],
+
+Cell[TextData[StyleBox["Load TopoTB package through Get",
+ Background->RGBColor[0.94, 0.88, 0.94]]], "Text",
+ CellChangeTimes->{{3.915620473782857*^9, 3.915620480085478*^9}, {
+  3.9156213510731077`*^9, 3.915621359793846*^9}},
+ Background->RGBColor[
+  0.94, 0.88, 0.94],ExpressionUUID->"cfbe4294-fc95-4ef1-8ba3-b4876d3188b3"],
+
+Cell[BoxData[
+ RowBox[{"<<", "TopoTB`"}]], "Code",
+ CellChangeTimes->{{3.9152838635876045`*^9, 3.915283868948276*^9}},
+ CellLabel->"In[6]:=",ExpressionUUID->"c9d34a4b-5574-4db4-9a1f-1efd1e9c479e"],
+
+Cell[TextData[StyleBox["Currently, all functions in the TopoTB package are",
+ Background->RGBColor[0.94, 0.88, 0.94]]], "Text",
+ CellChangeTimes->{{3.9156208420329247`*^9, 3.915620862016199*^9}, 
+   3.915621408641167*^9},
+ Background->RGBColor[
+  0.94, 0.88, 0.94],ExpressionUUID->"0b92cb66-aff6-4fa7-a9a6-6d94b67c08cd"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{"Names", "[", "\"\<TopoTB`BrillouinZone2D`*\>\"", "]"}], "\n", 
+ RowBox[{"Names", "[", "\"\<TopoTB`FirstBrillouinZone`*\>\"", "]"}], "\n", 
+ RowBox[{"Names", "[", "\"\<TopoTB`HamiltonianCalculation`*\>\"", "]"}], "\n", 
+ RowBox[{"Names", "[", "\"\<TopoTB`TopologicalNumber`*\>\"", "]"}], "\n", 
+ RowBox[{"Names", "[", "\"\<TopoTB`Model`*\>\"", "]"}], "\n", 
+ RowBox[{"Names", "[", "\"\<TopoTB`Wannier90`*\>\"", "]"}], "\n", 
+ RowBox[{"Names", "[", "\"\<TopoTB`VASP`*\>\"", "]"}], "\n", 
+ RowBox[{"Names", "[", "\"\<TopoTB`Plots`*\>\"", "]"}]}], "Code",
+ CellChangeTimes->{{3.915285202362352*^9, 3.9152852549158535`*^9}, 
+   3.9152852894924307`*^9, {3.9156206571120057`*^9, 3.915620751319669*^9}, {
+   3.9156207825783625`*^9, 3.915620794222397*^9}},
+ CellLabel->"In[7]:=",ExpressionUUID->"93fb54a2-8549-4d91-81e4-980f9453ee11"],
+
+Cell[BoxData[
+ RowBox[{"{", "\<\"BrillouinZone2D\"\>", "}"}]], "Output",
+ CellChangeTimes->{{3.9152852270672913`*^9, 3.915285255424464*^9}, 
+   3.9152852912257943`*^9, 3.915285518097004*^9, 3.9156204188795595`*^9, 
+   3.915620764268097*^9, 3.9156207959395227`*^9, 3.9156217884157095`*^9},
+ CellLabel->"Out[7]=",ExpressionUUID->"a78c6296-a5dd-4c42-9a8f-8b5f5ea30fb0"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"\<\"FBZ2D\"\>", ",", "\<\"FBZ3D\"\>"}], "}"}]], "Output",
+ CellChangeTimes->{{3.9152852270672913`*^9, 3.915285255424464*^9}, 
+   3.9152852912257943`*^9, 3.915285518097004*^9, 3.9156204188795595`*^9, 
+   3.915620764268097*^9, 3.9156207959395227`*^9, 3.9156217884196987`*^9},
+ CellLabel->"Out[8]=",ExpressionUUID->"ae5b67b2-8b8d-4a59-b326-cb45241ef339"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"\<\"DOS2D\"\>", ",", "\<\"FermiSurfaceAtEnergy2D\"\>", 
+   ",", "\<\"HCalc2D\"\>", ",", "\<\"HSPBand\"\>", 
+   ",", "\<\"SpinTextureAtEnergy2D\"\>"}], "}"}]], "Output",
+ CellChangeTimes->{{3.9152852270672913`*^9, 3.915285255424464*^9}, 
+   3.9152852912257943`*^9, 3.915285518097004*^9, 3.9156204188795595`*^9, 
+   3.915620764268097*^9, 3.9156207959395227`*^9, 3.915621788423688*^9},
+ CellLabel->"Out[9]=",ExpressionUUID->"804db7ab-7dfe-4fb8-9a57-ccece58c10f6"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"\<\"BerryPhaseCalc\"\>", ",", "\<\"ChernNumberCalc\"\>", 
+   ",", "\<\"Z2NumberCalc\"\>", ",", "\<\"Z2NumberCalcByWilsonLoop\"\>"}], 
+  "}"}]], "Output",
+ CellChangeTimes->{{3.9152852270672913`*^9, 3.915285255424464*^9}, 
+   3.9152852912257943`*^9, 3.915285518097004*^9, 3.9156204188795595`*^9, 
+   3.915620764268097*^9, 3.9156207959395227`*^9, 3.915621788615177*^9},
+ CellLabel->"Out[10]=",ExpressionUUID->"87d2dfae-b307-4bf1-8929-b61de060aebc"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"\<\"BHZModel\"\>", ",", "\<\"HaldaneModel\"\>", 
+   ",", "\<\"IQHEModel\"\>", ",", "\<\"KaneMeleModel\"\>", 
+   ",", "\<\"QSHEModel\"\>", ",", "\<\"SSHModel\"\>"}], "}"}]], "Output",
+ CellChangeTimes->{{3.9152852270672913`*^9, 3.915285255424464*^9}, 
+   3.9152852912257943`*^9, 3.915285518097004*^9, 3.9156204188795595`*^9, 
+   3.915620764268097*^9, 3.9156207959395227`*^9, 3.915621788617171*^9},
+ CellLabel->"Out[11]=",ExpressionUUID->"c5000773-01c7-4005-b7bb-6f4c660bbc83"],
+
+Cell[BoxData[
+ RowBox[{"{", "\<\"Wannier90hr\"\>", "}"}]], "Output",
+ CellChangeTimes->{{3.9152852270672913`*^9, 3.915285255424464*^9}, 
+   3.9152852912257943`*^9, 3.915285518097004*^9, 3.9156204188795595`*^9, 
+   3.915620764268097*^9, 3.9156207959395227`*^9, 3.9156217886211605`*^9},
+ CellLabel->"Out[12]=",ExpressionUUID->"b849b521-6601-409e-b33d-b3e9cff00515"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"\<\"VASPBand\"\>", ",", "\<\"VASPPBand\"\>"}], "}"}]], "Output",
+ CellChangeTimes->{{3.9152852270672913`*^9, 3.915285255424464*^9}, 
+   3.9152852912257943`*^9, 3.915285518097004*^9, 3.9156204188795595`*^9, 
+   3.915620764268097*^9, 3.9156207959395227`*^9, 3.9156217886251497`*^9},
+ CellLabel->"Out[13]=",ExpressionUUID->"61a1dcaa-7198-42a5-8141-2f648a7d235c"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"\<\"BandIndexPlot\"\>", ",", "\<\"BandLabelsPlot\"\>", 
+   ",", "\<\"BandPlot\"\>", ",", "\<\"PBandPlot\"\>", 
+   ",", "\<\"PBandSpinPlot\"\>"}], "}"}]], "Output",
+ CellChangeTimes->{{3.9152852270672913`*^9, 3.915285255424464*^9}, 
+   3.9152852912257943`*^9, 3.915285518097004*^9, 3.9156204188795595`*^9, 
+   3.915620764268097*^9, 3.9156207959395227`*^9, 3.9156217886301365`*^9},
+ CellLabel->"Out[14]=",ExpressionUUID->"eff83f0b-b014-4e0c-af18-0efea942d314"]
+}, Open  ]],
+
+Cell[TextData[StyleBox["Get help by running the \
+\[OpenCurlyDoubleQuote]?+function\[CloseCurlyDoubleQuote].",
+ Background->RGBColor[0.94, 0.88, 0.94]]], "Text",
+ CellChangeTimes->{{3.91562051192022*^9, 3.9156205197517185`*^9}, 
+   3.9156214903855934`*^9},
+ Background->RGBColor[
+  0.94, 0.88, 0.94],ExpressionUUID->"5755c87f-33b9-48df-b73c-10308941dc5f"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"?", "HSPBand"}]], "Code",
+ CellChangeTimes->{{3.9152829209955072`*^9, 3.9152830166606703`*^9}, {
+  3.9152831045169096`*^9, 3.915283110163854*^9}, {3.9152832271894417`*^9, 
+  3.9152832353396173`*^9}, {3.9152832734777966`*^9, 3.9152832804611187`*^9}, {
+  3.91528369590101*^9, 3.915283702484376*^9}, {3.915283807406109*^9, 
+  3.915283822108823*^9}, {3.915283878564533*^9, 3.915283887772044*^9}},
+ CellLabel->"In[15]:=",ExpressionUUID->"5974b7a4-e1c1-47ae-bd32-5dabfa78c876"],
+
+Cell[BoxData[
+ InterpretationBox[
+  StyleBox[
+   FrameBox[
+    DynamicModuleBox[{System`InformationDump`open$$ = False, 
+     System`InformationDump`mouseOver$$ = False}, 
+     PaneSelectorBox[{True->
+      TagBox[GridBox[{
+         {
+          ItemBox[
+           PaneBox[
+            StyleBox["\<\" Symbol\"\>", "InformationTitleText",
+             StripOnInput->False,
+             BaseStyle -> None],
+            FrameMargins->{{4, 0}, {-1, 1}}],
+           BaseStyle->"InformationTitleBackground",
+           StripOnInput->False], 
+          ItemBox["\<\"\"\>",
+           BaseStyle->"InformationTitleBackground",
+           StripOnInput->False]},
+         {
+          ItemBox[
+           PaneBox[
+            
+            StyleBox["\<\"HSPBand[H_,lattice_,kpt2kpt_,klabel_,EFermi_:0]\\n\\\
+nInput:\\nH: The format of the Hamiltonian is H[{kx, ky, kz}, \
+parameter...].\\nlattice: The primitive vectors of Bravais Lattices (Lattice \
+Vectors).\\nkpt2kpt: High-symmetry point coordinates and their corresponding \
+point numbers are formatted as {{A, B, num}, {B, C, num}, ...}.\\nklabel: \
+Name of high-symmetry point.\:ff09\\nEFermi: Fermi level. The default value \
+is 0.\\n\\nOutput:\\nHSPPathCoordinate: The coordinates of points on a \
+high-symmetry path.\\nHSPPathDistance: Accumulated distance of points on a \
+high-symmetry path.\\nHSPLabel: The position of high-symmetry points on a \
+high-symmetry paths.\\nHSPBandData: With the option to use this data for \
+plotting or exporting it for use with other software.\\nHSPBandFigure: Band \
+structure.\\n\\nExample\:ff1a\\nh[{kx_,ky_,kz_},t_:1,\[Lambda]R_:0.05,\
+\[Lambda]SO_:0.06,\[Lambda]v_:0.1]=H;\\nlat={{\\!\\(\\*FractionBox[\\(1\\), \
+\\(2\\)]\\),\\!\\(\\*FractionBox[SqrtBox[\\(3\\)], \
+\\(2\\)]\\),0},{-\\!\\(\\*FractionBox[\\(1\\), \
+\\(2\\)]\\),\\!\\(\\*FractionBox[SqrtBox[\\(3\\)], \
+\\(2\\)]\\),0},{0,0,3}};\\nG0={0,0,0};K0={\\!\\(\\*FractionBox[\\(2\\), \
+\\(3\\)]\\),\\!\\(\\*FractionBox[\\(1\\), \
+\\(3\\)]\\),0};M0={\\!\\(\\*FractionBox[\\(1\\), \
+\\(2\\)]\\),0,0};\\nHSPBand[h,lat,{{G0,M0,40},{M0,K0,20},{K0,G0,40}},klabel,0]\
+\"\>", "InformationUsageText",
+             StripOnInput->False,
+             LineSpacing->{1.5, 1.5, 3.}],
+            FrameMargins->{{10, 10}, {8, 10}}],
+           BaseStyle->"InformationUsageSubtitleBackground",
+           StripOnInput->False], 
+          ItemBox["\<\"\"\>",
+           BaseStyle->"InformationUsageSubtitleBackground",
+           StripOnInput->False]},
+         {
+          PaneBox[
+           TagBox[GridBox[{
+              {
+               StyleBox[
+                TagBox[
+                 TooltipBox[
+                  StyleBox["\<\" Definitions\"\>", "InformationRowLabel",
+                   StripOnInput->False],
+                  "\"Definitions\"",
+                  TooltipStyle->"TextStyling"],
+                 Annotation[#, "Definitions", "Tooltip"]& ], "DialogStyle",
+                StripOnInput->False]},
+              {
+               TemplateBox[{"\"\[ThinSpace]\"", 
+                 GridBox[{{
+                    RowBox[{
+                    RowBox[{"HSPBand", "[", 
+                    
+                    RowBox[{
+                    "Private`H_", ",", "Private`lattice_", ",", 
+                    "Private`kpt2kpt_", ",", "Private`klabel_", ",", 
+                    RowBox[{"Private`EFermi_", ":", "0"}]}], "]"}], ":=", 
+                    RowBox[{"Module", "[", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"Private`a1", ",", "Private`a2", ",", 
+                    "Private`a3", ",", "Private`\[CapitalOmega]", ",", 
+                    "Private`b1", ",", "Private`b2", ",", "Private`b3", ",", 
+                    "Private`ktrans", ",", "Private`kpoints", ",", 
+                    "Private`kpath1", ",", "Private`kpath2", ",", 
+                    "Private`kpath3", ",", "Private`kk1", ",", "Private`kk2", 
+                    ",", "Private`KK", ",", "Private`energy", ",", 
+                    "Private`nbands", ",", "Private`nkpts", ",", 
+                    "Private`tband", ",", "Private`bandFig"}], "}"}], ",", 
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"Private`a1", ",", "Private`a2", ",", 
+                    "Private`a3"}], "}"}], "=", "Private`lattice"}], ";", 
+                    RowBox[{"Private`\[CapitalOmega]", "=", 
+                    RowBox[{"Private`a1", ".", 
+                    RowBox[{"Private`a2", "\[Cross]", "Private`a3"}]}]}], ";", 
+                    RowBox[{"Private`b1", "=", 
+                    FractionBox[
+                    RowBox[{"2", " ", "\[Pi]", " ", 
+                    RowBox[{"Private`a2", "\[Cross]", "Private`a3"}]}], 
+                    "Private`\[CapitalOmega]"]}], ";", 
+                    RowBox[{"Private`b2", "=", 
+                    FractionBox[
+                    RowBox[{"2", " ", "\[Pi]", " ", 
+                    RowBox[{"Private`a3", "\[Cross]", "Private`a1"}]}], 
+                    "Private`\[CapitalOmega]"]}], ";", 
+                    RowBox[{"Private`b3", "=", 
+                    FractionBox[
+                    RowBox[{"2", " ", "\[Pi]", " ", 
+                    RowBox[{"Private`a1", "\[Cross]", "Private`a2"}]}], 
+                    "Private`\[CapitalOmega]"]}], ";", 
+                    RowBox[{
+                    RowBox[{"Private`ktrans", "[", "Private`x_", "]"}], ":=", 
+                    
+                    RowBox[{
+                    RowBox[{
+                    
+                    RowBox[{"Private`x", "\[LeftDoubleBracket]", "1", 
+                    "\[RightDoubleBracket]"}], " ", "Private`b1"}], "+", 
+                    RowBox[{
+                    
+                    RowBox[{"Private`x", "\[LeftDoubleBracket]", "2", 
+                    "\[RightDoubleBracket]"}], " ", "Private`b2"}], "+", 
+                    RowBox[{
+                    
+                    RowBox[{"Private`x", "\[LeftDoubleBracket]", "3", 
+                    "\[RightDoubleBracket]"}], " ", "Private`b3"}]}]}], ";", 
+                    RowBox[{
+                    RowBox[{"Private`kpoints", "[", 
+                    
+                    RowBox[{"Private`start_", ",", "Private`end_", ",", 
+                    "Private`npoints_"}], "]"}], ":=", 
+                    RowBox[{"Table", "[", 
+                    RowBox[{
+                    RowBox[{"Private`start", "+", 
+                    FractionBox[
+                    RowBox[{"Private`i", " ", 
+                    RowBox[{"(", 
+                    RowBox[{"Private`end", "-", "Private`start"}], ")"}]}], 
+                    "Private`npoints"]}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{"Private`i", ",", "0", ",", 
+                    RowBox[{"Private`npoints", "-", "1"}]}], "}"}]}], "]"}]}],
+                     ";", 
+                    RowBox[{"Private`kpath1", "=", 
+                    RowBox[{"N", "[", 
+                    RowBox[{"Flatten", "[", 
+                    RowBox[{
+                    RowBox[{"Table", "[", 
+                    RowBox[{
+                    RowBox[{"Private`kpoints", "[", 
+                    RowBox[{
+                    RowBox[{"Private`ktrans", "[", 
+                    RowBox[{"Private`kpt2kpt", "\[LeftDoubleBracket]", 
+                    RowBox[{"Private`j", ",", "1"}], 
+                    "\[RightDoubleBracket]"}], "]"}], ",", 
+                    RowBox[{"Private`ktrans", "[", 
+                    RowBox[{"Private`kpt2kpt", "\[LeftDoubleBracket]", 
+                    RowBox[{"Private`j", ",", "2"}], 
+                    "\[RightDoubleBracket]"}], "]"}], ",", 
+                    RowBox[{"Private`kpt2kpt", "\[LeftDoubleBracket]", 
+                    RowBox[{"Private`j", ",", "3"}], 
+                    "\[RightDoubleBracket]"}]}], "]"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{"Private`j", ",", "1", ",", 
+                    RowBox[{"Length", "[", "Private`kpt2kpt", "]"}]}], 
+                    "}"}]}], "]"}], ",", "1"}], "]"}], "]"}]}], ";", 
+                    RowBox[{"AppendTo", "[", 
+                    RowBox[{"Private`kpath1", ",", 
+                    RowBox[{"Private`ktrans", "[", 
+                    RowBox[{
+                    RowBox[{"Last", "[", "Private`kpt2kpt", "]"}], 
+                    "\[LeftDoubleBracket]", "2", "\[RightDoubleBracket]"}], 
+                    "]"}]}], "]"}], ";", 
+                    RowBox[{"Private`kpath2", "=", 
+                    RowBox[{"Table", "[", 
+                    RowBox[{
+                    RowBox[{"Norm", "[", 
+                    RowBox[{
+                    RowBox[{"Private`kpath1", "\[LeftDoubleBracket]", 
+                    RowBox[{"Private`i", "+", "1"}], 
+                    "\[RightDoubleBracket]"}], "-", 
+                    
+                    RowBox[{"Private`kpath1", "\[LeftDoubleBracket]", 
+                    "Private`i", "\[RightDoubleBracket]"}]}], "]"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{"Private`i", ",", "1", ",", 
+                    RowBox[{
+                    RowBox[{"Length", "[", "Private`kpath1", "]"}], "-", 
+                    "1"}]}], "}"}]}], "]"}]}], ";", 
+                    RowBox[{"Private`kpath3", "=", 
+                    RowBox[{"Join", "[", 
+                    RowBox[{
+                    RowBox[{"{", "0", "}"}], ",", 
+                    RowBox[{"Accumulate", "[", "Private`kpath2", "]"}]}], 
+                    "]"}]}], ";", 
+                    RowBox[{"Private`kk1", "=", "Private`klabel"}], ";", 
+                    RowBox[{"Private`kk2", "=", 
+                    RowBox[{"Table", "[", 
+                    RowBox[{
+                    RowBox[{"Private`kpt2kpt", "\[LeftDoubleBracket]", 
+                    RowBox[{"Private`j", ",", "3"}], 
+                    "\[RightDoubleBracket]"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{"Private`j", ",", "1", ",", 
+                    RowBox[{"Length", "[", "Private`kpt2kpt", "]"}]}], 
+                    "}"}]}], "]"}]}], ";", 
+                    RowBox[{"PrependTo", "[", 
+                    RowBox[{"Private`kk2", ",", "1"}], "]"}], ";", 
+                    RowBox[{"Private`kk2", "=", 
+                    RowBox[{"Accumulate", "[", "Private`kk2", "]"}]}], ";", 
+                    RowBox[{"Private`kk2", "=", 
+                    RowBox[{"Table", "[", 
+                    RowBox[{
+                    
+                    RowBox[{"Private`kpath3", "\[LeftDoubleBracket]", 
+                    "Private`i", "\[RightDoubleBracket]"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{"Private`i", ",", "Private`kk2"}], "}"}]}], 
+                    "]"}]}], ";", 
+                    RowBox[{"Private`KK", "=", 
+                    RowBox[{"Transpose", "[", 
+                    RowBox[{"{", 
+                    RowBox[{"Private`kk2", ",", "Private`kk1"}], "}"}], 
+                    "]"}]}], ";", 
+                    RowBox[{"Private`energy", "=", 
+                    RowBox[{
+                    RowBox[{"Table", "[", 
+                    RowBox[{
+                    RowBox[{"Sort", "[", 
+                    RowBox[{"Eigenvalues", "[", 
+                    RowBox[{"Private`H", "[", 
+                    
+                    RowBox[{"Private`kpath1", "\[LeftDoubleBracket]", 
+                    "Private`i", "\[RightDoubleBracket]"}], "]"}], "]"}], 
+                    "]"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{"Private`i", ",", "1", ",", 
+                    RowBox[{"Length", "[", "Private`kpath1", "]"}]}], "}"}]}],
+                     "]"}], "-", "Private`EFermi"}]}], ";", 
+                    RowBox[{"Private`nbands", "=", 
+                    RowBox[{"Length", "[", 
+                    RowBox[{"Private`H", "[", 
+                    
+                    RowBox[{"Private`kpath1", "\[LeftDoubleBracket]", "1", 
+                    "\[RightDoubleBracket]"}], "]"}], "]"}]}], ";", 
+                    RowBox[{"Private`nkpts", "=", 
+                    RowBox[{"Length", "[", "Private`kpath1", "]"}]}], ";", 
+                    RowBox[{"Private`tband", "=", 
+                    RowBox[{"Table", "[", 
+                    RowBox[{
+                    RowBox[{"Transpose", "[", 
+                    RowBox[{"{", 
+                    RowBox[{"Private`kpath3", ",", 
+                    RowBox[{"Private`energy", "\[LeftDoubleBracket]", 
+                    RowBox[{"All", ",", "Private`i"}], 
+                    "\[RightDoubleBracket]"}]}], "}"}], "]"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{"Private`i", ",", "1", ",", "Private`nbands"}], 
+                    "}"}]}], "]"}]}], ";", 
+                    RowBox[{"Private`bandFig", "=", 
+                    RowBox[{"ListLinePlot", "[", 
+                    RowBox[{"Private`tband", ",", 
+                    RowBox[{"Axes", "\[Rule]", "False"}], ",", 
+                    RowBox[{"GridLines", "\[Rule]", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{"Transpose", "[", "Private`KK", "]"}], 
+                    "\[LeftDoubleBracket]", "1", "\[RightDoubleBracket]"}], 
+                    ",", 
+                    RowBox[{"{", "0", "}"}]}], "}"}]}], ",", 
+                    RowBox[{"GridLinesStyle", "\[Rule]", 
+                    RowBox[{"Directive", "[", 
+                    RowBox[{"Orange", ",", "Dashed"}], "]"}]}], ",", 
+                    RowBox[{"Frame", "\[Rule]", "True"}], ",", 
+                    RowBox[{"FrameTicks", "\[Rule]", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{"Automatic", ",", "None"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{"Private`KK", ",", "None"}], "}"}]}], "}"}]}], 
+                    ",", 
+                    RowBox[{"FrameStyle", "\[Rule]", 
+                    RowBox[{"Directive", "[", "Purple", "]"}]}], ",", 
+                    RowBox[{"FrameLabel", "\[Rule]", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"Style", "[", 
+                    RowBox[{"\"Wave vector\"", ",", 
+                    RowBox[{"FontFamily", "\[Rule]", "\"Times New Roman\""}], 
+                    ",", "16"}], "]"}], ",", 
+                    RowBox[{"Style", "[", 
+                    RowBox[{"\"Energy(eV)\"", ",", 
+                    RowBox[{"FontFamily", "\[Rule]", "\"Times New Roman\""}], 
+                    ",", "16"}], "]"}]}], "}"}]}], ",", 
+                    RowBox[{"AspectRatio", "\[Rule]", 
+                    FractionBox["1", "GoldenRatio"]}], ",", 
+                    RowBox[{"PlotStyle", "\[Rule]", 
+                    RowBox[{"Thickness", "[", "0.003`", "]"}]}], ",", 
+                    RowBox[{"PlotRange", "\[Rule]", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{"First", "[", "Private`KK", "]"}], 
+                    "\[LeftDoubleBracket]", "1", "\[RightDoubleBracket]"}], 
+                    ",", 
+                    RowBox[{
+                    RowBox[{"Last", "[", "Private`KK", "]"}], 
+                    "\[LeftDoubleBracket]", "1", "\[RightDoubleBracket]"}]}], 
+                    "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{"All", ",", "All"}], "}"}]}], "}"}]}]}], "]"}]}], 
+                    ";", 
+                    RowBox[{"Dataset", "[", 
+                    RowBox[{
+                    RowBox[{"Association", "[", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{
+                    
+                    RowBox[{"\"HSPPathCoordinate\"", "\[Rule]", 
+                    "Private`kpath1"}], ",", 
+                    
+                    RowBox[{"\"HSPPathDistance\"", "\[Rule]", 
+                    "Private`kpath3"}], ",", 
+                    RowBox[{"\"HSPLabel\"", "\[Rule]", "Private`KK"}], ",", 
+                    RowBox[{"\"HSPBandData\"", "\[Rule]", "Private`tband"}]}],
+                     "}"}], ",", 
+                    
+                    RowBox[{"\"HSPBandFigure\"", "\[Rule]", 
+                    "Private`bandFig"}]}], "]"}], ",", 
+                    RowBox[{"DatasetTheme", "\[Rule]", 
+                    RowBox[{"{", "\"Serif\"", "}"}]}]}], "]"}]}]}], 
+                    "]"}]}]}, {" "}}, 
+                  GridBoxAlignment -> {"Columns" -> {{Left}}}, 
+                  DefaultBaseStyle -> "Column", 
+                  GridBoxItemSize -> {
+                   "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}]},
+                "RowDefault"]}
+             },
+             DefaultBaseStyle->"Column",
+             GridBoxAlignment->{"Columns" -> {{Left}}},
+             
+             GridBoxItemSize->{
+              "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
+            "Column"],
+           FrameMargins->{{6, 0}, {3, 6}}], "\<\"\"\>"},
+         {
+          PaneBox[GridBox[{
+             {
+              
+              DynamicModuleBox[{System`InformationDump`open$$ = {
+               False, False, False, False, False, False}}, 
+               StyleBox[GridBox[{
+                  {
+                   TagBox[
+                    TooltipBox[
+                    StyleBox["\<\" Full Name\"\>", "InformationRowLabel",
+                    StripOnInput->False],
+                    "\"FullName\"",
+                    TooltipStyle->"TextStyling"],
+                    
+                    Annotation[#, "FullName", 
+                    "Tooltip"]& ], "\<\"TopoTB`HamiltonianCalculation`HSPBand\
+\"\>"}
+                 },
+                 AutoDelete->False,
+                 GridBoxAlignment->{"Columns" -> {Right, Left}},
+                 GridBoxDividers->None,
+                 GridBoxItemSize->{"Columns" -> {Automatic, Automatic}},
+                 GridBoxSpacings->{"Columns" -> {
+                    Offset[0.27999999999999997`], {
+                    Offset[0.5599999999999999]}, 
+                    Offset[0.27999999999999997`]}, "Rows" -> {
+                    Offset[0.2], {
+                    Offset[0.8]}, 
+                    Offset[0.2]}}], "DialogStyle",
+                StripOnInput->False],
+               DynamicModuleValues:>{}]}
+            },
+            DefaultBaseStyle->"Column",
+            GridBoxAlignment->{"Columns" -> {{Left}}},
+            GridBoxDividers->{"Columns" -> {{False}}, "Rows" -> {{False}}},
+            
+            GridBoxItemSize->{
+             "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}},
+            GridBoxSpacings->{"Columns" -> {
+                Offset[0.27999999999999997`], {
+                 Offset[0.5599999999999999]}, 
+                Offset[0.27999999999999997`]}, "Rows" -> {
+                Offset[0.2], {
+                 Offset[3.6]}, 
+                Offset[0.2]}}],
+           FrameMargins->{{6, 6}, {6, 3}}], ""},
+         {
+          ItemBox[
+           TagBox[
+            ButtonBox[
+             PaneSelectorBox[{False->
+              
+              DynamicBox[FEPrivate`FrontEndResource[
+               "FEBitmaps", "UpPointerOpener"]], True->
+              
+              DynamicBox[FEPrivate`FrontEndResource[
+               "FEBitmaps", "UpPointerOpenerHot"]]}, Dynamic[
+              System`InformationDump`mouseOver$$]],
+             Alignment->Left,
+             Appearance->{"Default" -> None},
+             
+             ButtonFunction:>FEPrivate`Set[
+              System`InformationDump`open$$, False],
+             Evaluator->Automatic,
+             FrameMargins->{{9, 0}, {0, 0}},
+             ImageMargins->0,
+             ImageSize->Full,
+             Method->"Preemptive"],
+            
+            EventHandlerTag[{
+             "MouseEntered" :> 
+              FEPrivate`Set[System`InformationDump`mouseOver$$, True], 
+              "MouseExited" :> 
+              FEPrivate`Set[System`InformationDump`mouseOver$$, False], 
+              Method -> "Preemptive", PassEventsDown -> Automatic, 
+              PassEventsUp -> True}]],
+           BaseStyle->"InformationTitleBackground",
+           StripOnInput->False], "\[SpanFromLeft]"}
+        },
+        AutoDelete->False,
+        FrameStyle->Directive[
+          GrayLevel[0.8], 
+          Thickness[Tiny]],
+        GridBoxAlignment->{"Columns" -> {Left, Right}, "Rows" -> {{Center}}},
+        GridBoxDividers->{
+         "Columns" -> {{None}}, "Rows" -> {False, {True}, False}},
+        GridBoxItemSize->{
+         "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
+       "Grid"], False->
+      TagBox[GridBox[{
+         {
+          ItemBox[
+           PaneBox[
+            StyleBox["\<\" Symbol\"\>", "InformationTitleText",
+             StripOnInput->False],
+            FrameMargins->{{4, 0}, {-1, 1}}],
+           BaseStyle->"InformationTitleBackground",
+           StripOnInput->False], 
+          ItemBox["\<\"\"\>",
+           BaseStyle->"InformationTitleBackground",
+           StripOnInput->False]},
+         {
+          ItemBox[
+           PaneBox[
+            
+            StyleBox["\<\"HSPBand[H_,lattice_,kpt2kpt_,klabel_,EFermi_:0]\\n\\\
+nInput:\\nH: The format of the Hamiltonian is H[{kx, ky, kz}, \
+parameter...].\\nlattice: The primitive vectors of Bravais Lattices (Lattice \
+Vectors).\\nkpt2kpt: High-symmetry point coordinates and their corresponding \
+point numbers are formatted as {{A, B, num}, {B, C, num}, ...}.\\nklabel: \
+Name of high-symmetry point.\:ff09\\nEFermi: Fermi level. The default value \
+is 0.\\n\\nOutput:\\nHSPPathCoordinate: The coordinates of points on a \
+high-symmetry path.\\nHSPPathDistance: Accumulated distance of points on a \
+high-symmetry path.\\nHSPLabel: The position of high-symmetry points on a \
+high-symmetry paths.\\nHSPBandData: With the option to use this data for \
+plotting or exporting it for use with other software.\\nHSPBandFigure: Band \
+structure.\\n\\nExample\:ff1a\\nh[{kx_,ky_,kz_},t_:1,\[Lambda]R_:0.05,\
+\[Lambda]SO_:0.06,\[Lambda]v_:0.1]=H;\\nlat={{\\!\\(\\*FractionBox[\\(1\\), \
+\\(2\\)]\\),\\!\\(\\*FractionBox[SqrtBox[\\(3\\)], \
+\\(2\\)]\\),0},{-\\!\\(\\*FractionBox[\\(1\\), \
+\\(2\\)]\\),\\!\\(\\*FractionBox[SqrtBox[\\(3\\)], \
+\\(2\\)]\\),0},{0,0,3}};\\nG0={0,0,0};K0={\\!\\(\\*FractionBox[\\(2\\), \
+\\(3\\)]\\),\\!\\(\\*FractionBox[\\(1\\), \
+\\(3\\)]\\),0};M0={\\!\\(\\*FractionBox[\\(1\\), \
+\\(2\\)]\\),0,0};\\nHSPBand[h,lat,{{G0,M0,40},{M0,K0,20},{K0,G0,40}},klabel,0]\
+\"\>", "InformationUsageText",
+             StripOnInput->False,
+             LineSpacing->{1.5, 1.5, 3.}],
+            FrameMargins->{{10, 10}, {8, 10}}],
+           BaseStyle->"InformationUsageSubtitleBackground",
+           StripOnInput->False], 
+          ItemBox["\<\"\"\>",
+           BaseStyle->"InformationUsageSubtitleBackground",
+           StripOnInput->False]},
+         {
+          ItemBox[
+           TagBox[
+            ButtonBox[
+             PaneSelectorBox[{False->
+              
+              DynamicBox[FEPrivate`FrontEndResource[
+               "FEBitmaps", "DownPointerOpener"],
+               ImageSizeCache->{10., {3., 7.}}], True->
+              
+              DynamicBox[FEPrivate`FrontEndResource[
+               "FEBitmaps", "DownPointerOpenerHot"],
+               ImageSizeCache->{10., {3., 7.}}]}, Dynamic[
+              System`InformationDump`mouseOver$$]],
+             Alignment->Left,
+             Appearance->{"Default" -> None},
+             
+             ButtonFunction:>FEPrivate`Set[
+              System`InformationDump`open$$, True],
+             Evaluator->Automatic,
+             FrameMargins->{{9, 0}, {0, 0}},
+             ImageMargins->0,
+             ImageSize->Full,
+             Method->"Preemptive"],
+            
+            EventHandlerTag[{
+             "MouseEntered" :> 
+              FEPrivate`Set[System`InformationDump`mouseOver$$, True], 
+              "MouseExited" :> 
+              FEPrivate`Set[System`InformationDump`mouseOver$$, False], 
+              Method -> "Preemptive", PassEventsDown -> Automatic, 
+              PassEventsUp -> True}]],
+           BaseStyle->"InformationTitleBackground",
+           StripOnInput->False], "\[SpanFromLeft]"}
+        },
+        AutoDelete->False,
+        FrameStyle->Directive[
+          GrayLevel[0.8], 
+          Thickness[Tiny]],
+        GridBoxAlignment->{"Columns" -> {Left, Right}, "Rows" -> {{Center}}},
+        GridBoxDividers->{
+         "Columns" -> {{None}}, "Rows" -> {False, {True}, False}},
+        GridBoxItemSize->{
+         "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
+       "Grid"]}, Dynamic[System`InformationDump`open$$],
+      BaselinePosition->Baseline,
+      FrameMargins->0,
+      ImageSize->Automatic],
+     DynamicModuleValues:>{}],
+    BaseStyle->"InformationGridFrame",
+    StripOnInput->False], "InformationGridPlain",
+   StripOnInput->False],
+  InformationData[<|
+   "ObjectType" -> "Symbol", "Usage" -> 
+    "HSPBand[H_,lattice_,kpt2kpt_,klabel_,EFermi_:0]\n\nInput:\nH: The format \
+of the Hamiltonian is H[{kx, ky, kz}, parameter...].\nlattice: The primitive \
+vectors of Bravais Lattices (Lattice Vectors).\nkpt2kpt: High-symmetry point \
+coordinates and their corresponding point numbers are formatted as {{A, B, \
+num}, {B, C, num}, ...}.\nklabel: Name of high-symmetry point.\:ff09\nEFermi: \
+Fermi level. The default value is 0.\n\nOutput:\nHSPPathCoordinate: The \
+coordinates of points on a high-symmetry path.\nHSPPathDistance: Accumulated \
+distance of points on a high-symmetry path.\nHSPLabel: The position of \
+high-symmetry points on a high-symmetry paths.\nHSPBandData: With the option \
+to use this data for plotting or exporting it for use with other software.\n\
+HSPBandFigure: Band structure.\n\nExample\:ff1a\nh[{kx_,ky_,kz_},t_:1,\
+\[Lambda]R_:0.05,\[Lambda]SO_:0.06,\[Lambda]v_:0.1]=H;\n\
+lat={{\!\(\*FractionBox[\(1\), \(2\)]\),\!\(\*FractionBox[SqrtBox[\(3\)], \(2\
+\)]\),0},{-\!\(\*FractionBox[\(1\), \
+\(2\)]\),\!\(\*FractionBox[SqrtBox[\(3\)], \(2\)]\),0},{0,0,3}};\n\
+G0={0,0,0};K0={\!\(\*FractionBox[\(2\), \(3\)]\),\!\(\*FractionBox[\(1\), \(3\
+\)]\),0};M0={\!\(\*FractionBox[\(1\), \(2\)]\),0,0};\n\
+HSPBand[h,lat,{{G0,M0,40},{M0,K0,20},{K0,G0,40}},klabel,0]", "Documentation" -> 
+    None, "OwnValues" -> None, "UpValues" -> None, "DownValues" -> 
+    Information`InformationValueForm[
+     DownValues, TopoTB`HamiltonianCalculation`HSPBand, {
+      TopoTB`HamiltonianCalculation`HSPBand[
+         Pattern[Private`H, 
+          Blank[]], 
+         Pattern[Private`lattice, 
+          Blank[]], 
+         Pattern[Private`kpt2kpt, 
+          Blank[]], 
+         Pattern[Private`klabel, 
+          Blank[]], 
+         Optional[
+          Pattern[Private`EFermi, 
+           Blank[]], 0]] :> 
+       Module[{Private`a1, Private`a2, Private`a3, Private`\[CapitalOmega], 
+          Private`b1, Private`b2, Private`b3, Private`ktrans, Private`kpoints,
+           Private`kpath1, Private`kpath2, Private`kpath3, Private`kk1, 
+          Private`kk2, Private`KK, Private`energy, Private`nbands, 
+          Private`nkpts, Private`tband, 
+          Private`bandFig}, {Private`a1, Private`a2, Private`a3} = 
+          Private`lattice; Private`\[CapitalOmega] = Dot[Private`a1, 
+            Cross[Private`a2, Private`a3]]; 
+         Private`b1 = 
+          2 Pi (Cross[Private`a2, Private`a3]/Private`\[CapitalOmega]); 
+         Private`b2 = 
+          2 Pi (Cross[Private`a3, Private`a1]/Private`\[CapitalOmega]); 
+         Private`b3 = 
+          2 Pi (Cross[Private`a1, Private`a2]/Private`\[CapitalOmega]); 
+         Private`ktrans[
+            Pattern[Private`x, 
+             Blank[]]] := 
+          Part[Private`x, 1] Private`b1 + Part[Private`x, 2] Private`b2 + 
+           Part[Private`x, 3] Private`b3; Private`kpoints[
+            Pattern[Private`start, 
+             Blank[]], 
+            Pattern[Private`end, 
+             Blank[]], 
+            Pattern[Private`npoints, 
+             Blank[]]] := 
+          Table[Private`start + (Private`i/Private`npoints) (Private`end - 
+              Private`start), {Private`i, 0, Private`npoints - 1}]; 
+         Private`kpath1 = N[
+            Flatten[
+             Table[
+              Private`kpoints[
+               Private`ktrans[
+                Part[Private`kpt2kpt, Private`j, 1]], 
+               Private`ktrans[
+                Part[Private`kpt2kpt, Private`j, 2]], 
+               Part[Private`kpt2kpt, Private`j, 3]], {Private`j, 1, 
+               Length[Private`kpt2kpt]}], 1]]; AppendTo[Private`kpath1, 
+           Private`ktrans[
+            Part[
+             Last[Private`kpt2kpt], 2]]]; Private`kpath2 = Table[
+            Norm[
+            Part[Private`kpath1, Private`i + 1] - Part[
+             Private`kpath1, Private`i]], {
+            Private`i, 1, Length[Private`kpath1] - 1}]; 
+         Private`kpath3 = Join[{0}, 
+            Accumulate[Private`kpath2]]; Private`kk1 = Private`klabel; 
+         Private`kk2 = Table[
+            Part[Private`kpt2kpt, Private`j, 3], {Private`j, 1, 
+             Length[Private`kpt2kpt]}]; PrependTo[Private`kk2, 1]; 
+         Private`kk2 = Accumulate[Private`kk2]; Private`kk2 = Table[
+            Part[Private`kpath3, Private`i], {Private`i, Private`kk2}]; 
+         Private`KK = Transpose[{Private`kk2, Private`kk1}]; 
+         Private`energy = Table[
+             Sort[
+              Eigenvalues[
+               Private`H[
+                Part[Private`kpath1, Private`i]]]], {Private`i, 1, 
+              Length[Private`kpath1]}] - Private`EFermi; 
+         Private`nbands = Length[
+            Private`H[
+             Part[Private`kpath1, 1]]]; 
+         Private`nkpts = Length[Private`kpath1]; Private`tband = Table[
+            Transpose[{Private`kpath3, 
+              Part[Private`energy, All, Private`i]}], {
+            Private`i, 1, Private`nbands}]; 
+         Private`bandFig = 
+          ListLinePlot[Private`tband, Axes -> False, GridLines -> {
+              Part[
+               Transpose[Private`KK], 1], {0}}, GridLinesStyle -> 
+            Directive[Orange, Dashed], Frame -> True, 
+            FrameTicks -> {{Automatic, None}, {Private`KK, None}}, FrameStyle -> 
+            Directive[Purple], FrameLabel -> {
+              Style["Wave vector", FontFamily -> "Times New Roman", 16], 
+              Style["Energy(eV)", FontFamily -> "Times New Roman", 16]}, 
+            AspectRatio -> 1/GoldenRatio, PlotStyle -> Thickness[0.003], 
+            PlotRange -> {{
+               Part[
+                First[Private`KK], 1], 
+               Part[
+                Last[Private`KK], 1]}, {All, All}}]; 
+         Dataset[<|{
+            "HSPPathCoordinate" -> Private`kpath1, "HSPPathDistance" -> 
+             Private`kpath3, "HSPLabel" -> Private`KK, "HSPBandData" -> 
+             Private`tband}, "HSPBandFigure" -> Private`bandFig|>, 
+           DatasetTheme -> {"Serif"}]]}], "SubValues" -> None, 
+    "DefaultValues" -> None, "NValues" -> None, "FormatValues" -> None, 
+    "Options" -> None, "Attributes" -> {}, "FullName" -> 
+    "TopoTB`HamiltonianCalculation`HSPBand"|>, False]]], "Output",
+ CellChangeTimes->{3.915529198292852*^9, 3.9156205222170277`*^9, 
+  3.915621791904914*^9},
+ CellLabel->"Out[15]=",ExpressionUUID->"5418570c-d0f1-49e0-9918-b5a954c80b3c"]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{808.1999999999999, 652.1999999999999},
+WindowMargins->{{223.79999999999998`, Automatic}, {
+  63.60000000000002, Automatic}},
+FrontEndVersion->"13.3 for Microsoft Windows (64-bit) (2023\:5e747\:670824\
+\:65e5)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"d723ca72-da9d-4de5-84ac-d214b9c441ca"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 211, 4, 45, "Subsubsection",ExpressionUUID->"1ac99ec7-17be-4898-bf8a-b4566fb0275c"],
+Cell[794, 28, 705, 11, 97, "Text",ExpressionUUID->"bf3ca5dc-1a10-4518-b7c5-624d3ed4b6c3"],
+Cell[CellGroupData[{
+Cell[1524, 43, 152, 2, 50, "Code",ExpressionUUID->"0f8b946d-9caf-43cd-97d9-abd59b37e004"],
+Cell[1679, 47, 1585, 27, 223, "Output",ExpressionUUID->"badf65e6-cab7-4e69-aa7a-1f43509ef8d9"]
+}, Open  ]],
+Cell[3279, 77, 629, 9, 74, "Text",ExpressionUUID->"1a7cede8-64b0-418a-bc75-f08843e8ad71"],
+Cell[3911, 88, 311, 7, 50, "Code",ExpressionUUID->"23b38195-809c-48cb-9fd2-885268c27922"],
+Cell[4225, 97, 307, 7, 50, "Code",ExpressionUUID->"c27b5ad1-a48e-45ba-b8fa-2ba69c065e6e"],
+Cell[4535, 106, 517, 8, 74, "Text",ExpressionUUID->"445bd32e-7e2d-4b9f-9965-0a77d4bd9831"],
+Cell[CellGroupData[{
+Cell[5077, 118, 217, 3, 50, "Code",ExpressionUUID->"2de2cc10-2741-4209-9e1f-b172561ac7a5"],
+Cell[5297, 123, 348, 4, 32, "Output",ExpressionUUID->"458273f7-aab6-497e-9251-4232df0f6002"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[5694, 133, 185, 4, 45, "Subsubsection",ExpressionUUID->"10b5f6c6-32cc-42d2-b809-eddd9acdeb23"],
+Cell[5882, 139, 305, 5, 51, "Text",ExpressionUUID->"197e7826-10ee-4a78-a3d7-49244749d749"],
+Cell[6190, 146, 215, 3, 50, "Code",ExpressionUUID->"797a639b-2538-446d-b2a6-bdea09b1abfc"],
+Cell[6408, 151, 324, 5, 51, "Text",ExpressionUUID->"cfbe4294-fc95-4ef1-8ba3-b4876d3188b3"],
+Cell[6735, 158, 196, 3, 50, "Code",ExpressionUUID->"c9d34a4b-5574-4db4-9a1f-1efd1e9c479e"],
+Cell[6934, 163, 320, 5, 51, "Text",ExpressionUUID->"0b92cb66-aff6-4fa7-a9a6-6d94b67c08cd"],
+Cell[CellGroupData[{
+Cell[7279, 172, 850, 12, 173, "Code",ExpressionUUID->"93fb54a2-8549-4d91-81e4-980f9453ee11"],
+Cell[8132, 186, 366, 5, 32, "Output",ExpressionUUID->"a78c6296-a5dd-4c42-9a8f-8b5f5ea30fb0"],
+Cell[8501, 193, 391, 6, 32, "Output",ExpressionUUID->"ae5b67b2-8b8d-4a59-b326-cb45241ef339"],
+Cell[8895, 201, 500, 8, 32, "Output",ExpressionUUID->"804db7ab-7dfe-4fb8-9a57-ccece58c10f6"],
+Cell[9398, 211, 486, 8, 32, "Output",ExpressionUUID->"87d2dfae-b307-4bf1-8929-b61de060aebc"],
+Cell[9887, 221, 515, 8, 32, "Output",ExpressionUUID->"c5000773-01c7-4005-b7bb-6f4c660bbc83"],
+Cell[10405, 231, 363, 5, 32, "Output",ExpressionUUID->"b849b521-6601-409e-b33d-b3e9cff00515"],
+Cell[10771, 238, 399, 6, 32, "Output",ExpressionUUID->"61a1dcaa-7198-42a5-8141-2f648a7d235c"],
+Cell[11173, 246, 498, 8, 32, "Output",ExpressionUUID->"eff83f0b-b014-4e0c-af18-0efea942d314"]
+}, Open  ]],
+Cell[11686, 257, 355, 6, 51, "Text",ExpressionUUID->"5755c87f-33b9-48df-b73c-10308941dc5f"],
+Cell[CellGroupData[{
+Cell[12066, 267, 495, 7, 50, "Code",ExpressionUUID->"5974b7a4-e1c1-47ae-bd32-5dabfa78c876"],
+Cell[12564, 276, 31430, 665, 627, "Output",ExpressionUUID->"5418570c-d0f1-49e0-9918-b5a954c80b3c"]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
