@@ -3,7 +3,7 @@
 BeginPackage["TopoTB`HamiltonianCalculation`"]
 
 
-HSPBand::usage="HSPBand[H_,lattice_,kpt2kpt_,klabel_,EFermi_:0]
+HSPBand::usage="HSPBand[H_,lattice_,kpt2kpt_,klabel_,EFermi_:0,bandIndex_:All,color_:RandomColor[]]
 
 Input:
 H: The format of the Hamiltonian is H[{kx, ky, kz}, parameter...].
@@ -11,6 +11,8 @@ lattice: The primitive vectors of Bravais Lattices (Lattice Vectors).
 kpt2kpt: High-symmetry point coordinates and their corresponding point numbers are formatted as {{A, B, num}, {B, C, num}, ...}.
 klabel: Name of high-symmetry point.\:ff09
 EFermi: Fermi level. The default value is 0.
+bandIndex: Calculate the band of the bandIndex band.
+color: The color of the band. The default value is RandomColor[].
 
 Output:
 HSPPathCoordinate: The coordinates of points on a high-symmetry path.
@@ -50,7 +52,7 @@ h[{kx_,ky_,kz_},t_:1,\[Lambda]R_:0.05,\[Lambda]SO_:0.06,\[Lambda]v_:0.1]=H;
 lat={{\!\(\*FractionBox[\(1\), \(2\)]\),\!\(\*FractionBox[SqrtBox[\(3\)], \(2\)]\),0},{-\!\(\*FractionBox[\(1\), \(2\)]\),\!\(\*FractionBox[SqrtBox[\(3\)], \(2\)]\),0},{0,0,3}};
 ds=HCalc2D[h,lat,{1,2,3,4},{50,50},{2,2},2,1,0]";
 
-DOS2D::usage="DOS2D[H_,lattice_,b1b2points_:{100,100},round_:0.05,EFermi_:0]
+DOS2D::usage="DOS2D[H_,lattice_,b1b2points_:{100,100},round_:0.05,EFermi_:0,bandIndex_:All,color_:RandomColor[]]
 
 Input:
 H: The format of the Hamiltonian is H[{kx, ky, kz}, parameter...].
@@ -58,6 +60,8 @@ lattice: The primitive vectors of Bravais Lattices (Lattice Vectors).
 b1b2points: The number of points along the direction of two reciprocal lattice vectors. The default value is {100, 100}.
 round: Rounded values. The default value is 0.05.
 EFermi: Fermi level. The default value is 0.
+bandIndex: Calculate the DOS of the bandIndex band.
+color: The color of the DOS. The default value is RandomColor[].
 
 Output:
 DOSData: Density of states data.
@@ -119,7 +123,7 @@ SpinTextureAtEnergy2D[h,lat,2,3,Red,1,0.006,2]";
 Begin["Private`"]
 
 
-HSPBand[H_,lattice_,kpt2kpt_,klabel_,EFermi_:0]:=Module[
+HSPBand[H_,lattice_,kpt2kpt_,klabel_,EFermi_:0,bandIndex_:All,color_:{RandomColor[]}]:=Module[
 	{a1,a2,a3,\[CapitalOmega],b1,b2,b3,ktrans,kpoints,kpath1,kpath2,kpath3,kk1,kk2,KK,energy,nbands,nkpts,tband,bandFig},
 	{a1,a2,a3}=lattice;
 	\[CapitalOmega]=a1 . Cross[a2,a3];
@@ -136,8 +140,9 @@ HSPBand[H_,lattice_,kpt2kpt_,klabel_,EFermi_:0]:=Module[
 	kk2=Accumulate[kk2];
 	kk2=Table[kpath3[[i]],{i,kk2}];
 	KK=Transpose[{kk2,kk1}];
-	energy=Table[Sort[Eigenvalues[H[kpath1[[i]]]]],{i,1,Length[kpath1]}]-EFermi;
-	nbands=Length[H[kpath1[[1]]]];
+	energy=Table[Sort[Eigenvalues[H[kpath1[[i]]]]][[bandIndex]],{i,1,Length[kpath1]}]-EFermi;
+	(*nbands=Length[H[kpath1[[1]]]];*)
+	nbands=Length[energy[[1]]];
 	nkpts=Length[kpath1];
 	tband=Table[Transpose[{kpath3,energy[[All,i]]}],{i,1,nbands}];
 	bandFig=ListLinePlot[tband,
@@ -147,7 +152,7 @@ HSPBand[H_,lattice_,kpt2kpt_,klabel_,EFermi_:0]:=Module[
 		FrameStyle->Directive[Purple],
 		FrameLabel->{Style["Wave vector",FontFamily->"Times New Roman",16],Style["Energy(eV)",FontFamily->"Times New Roman",16]},
 		AspectRatio->1/GoldenRatio,
-		PlotStyle->Thickness[0.003],
+		PlotStyle->Table[Directive[Thickness[0.003],i],{i,color}],
 		(*ColorFunction\[Rule]"Rainbow",*)
 		PlotRange->{{First[KK][[1]],Last[KK][[1]]},{All,All}}];
 	(*Output*)
@@ -193,7 +198,7 @@ HCalc2D[H_,lattice_,bandIndex_:{1},b1b2points_:{50,50},b1b2ranges_:{2,2},spinTex
 	ds
 	]
 	
-DOS2D[H_,lattice_,b1b2points_:{100,100},round_:0.05,EFermi_:0]:=Module[
+DOS2D[H_,lattice_,b1b2points_:{100,100},round_:0.05,EFermi_:0,bandIndex_:All,color_:RandomColor[]]:=Module[
 	{a1,a2,a3,\[CapitalOmega],b1,b2,b3,nx,ny,BZb1,BZb2,BZ,kk,eigenvalues,DOSData,DOSXYFigure,DOSYXFigure},
 	{a1,a2,a3}=lattice;
 	\[CapitalOmega]=a1 . Cross[a2,a3];
@@ -203,12 +208,12 @@ DOS2D[H_,lattice_,b1b2points_:{100,100},round_:0.05,EFermi_:0]:=Module[
 	BZb2=b2;
 	BZ[nb1_,nb2_]:=nb1*BZb1+nb2*BZb2;
 	kk=Table[BZ[(i-1)/nx,(j-1)/ny]-BZ[1/2,1/2],{i,1,nx+1},{j,1,ny+1}];
-	eigenvalues=Table[Eigenvalues[H[kk[[i,j]]]]//N//Chop,{i,1,nx+1},{j,1,ny+1}]-EFermi;
+	eigenvalues=Table[(Eigenvalues[H[kk[[i,j]]]]//N//Chop//Sort)[[bandIndex]],{i,1,nx+1},{j,1,ny+1}]-EFermi;
 	DOSData=Tally[Round[Sort[Flatten[eigenvalues]],round]];
-	DOSXYFigure=ListLinePlot[DOSData,InterpolationOrder->2,PlotRange->All,PlotStyle->Blue,(*Filling->Axis,*)
+	DOSXYFigure=ListLinePlot[DOSData,InterpolationOrder->2,PlotRange->All,PlotStyle->Directive[Thickness[0.008],color],(*Filling->Axis,*)
 		Axes->False,Frame->True,FrameStyle->Directive[Purple],
 		FrameLabel->{Style["Energy(eV)",FontFamily->"Times New Roman",16],Style["DOS",FontFamily->"Times New Roman",16]}];
-	DOSYXFigure=ListLinePlot[Transpose@RotateLeft@Transpose@DOSData,InterpolationOrder->2,PlotRange->All,PlotStyle->Blue,
+	DOSYXFigure=ListLinePlot[Transpose@RotateLeft@Transpose@DOSData,InterpolationOrder->2,PlotRange->All,PlotStyle->Directive[Thickness[0.008],color],
 		Axes->False,Frame->True,FrameStyle->Directive[Purple],FrameTicks->{{None,None},{None,None}},AspectRatio->5/2,
 		FrameLabel->{Style["DOS",FontFamily->"Times New Roman",16],None}];
 	(*Output*)
