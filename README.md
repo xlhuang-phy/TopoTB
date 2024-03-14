@@ -58,3 +58,7 @@ Get help by running the `?+function`, such as `?HSPBand`.
 > Process the wannier90_hr.dat files obtained by Wannier90 and analyze them
 
 > Batch testing of parameters in the TB model
+
+## Examples
+
+For further details, please refer to the examples in the software package and https://arxiv.org/abs/2403.08615 .
