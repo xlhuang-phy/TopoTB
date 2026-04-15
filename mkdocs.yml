@@ -1,0 +1,21 @@
+# 网站名称（显示在浏览器标签页）
+site_name: TopoTB
+
+# 网站最终地址（GitHub Pages）
+site_url: https://xlhuang-phy.github.io/TopoTB
+
+# 网站外观
+theme:
+  # name: material
+  name: readthedocs
+
+# 搜索插件：添加搜索框
+plugins:
+  - search
+
+# 导航栏菜单（页面顶部的标签）
+nav:
+  - Home: index.md # 首页
+  - Installation: installation.md # 安装指南
+  - API Documentation: api.md # API文档
+  - Examples: examples.md  # 示例
